@@ -1,27 +1,13 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-    font-family: 'Roboto Flex', sans-serif;
+:root {
+	--roboto-flex: 'Roboto Flex', sans-serif;
 }
 
-.ant-modal-close {
-    display: none;
+body {
+	font-family: var(--roboto-flex);
 }
 
-.ant-modal-content {
-    padding: 0 !important;
-}
-
-.ant-btn {
-    display: none;
-}
-
-.switch:checked {
-    background: #1677FF !important;
+button {
+	cursor: pointer;
 }
