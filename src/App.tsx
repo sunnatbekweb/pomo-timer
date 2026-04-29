@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
 import { Button } from './components/ui/Button'
+import { Modal } from './components/ui/Modal'
 
 function App() {
 	const [isStarted, setIsStarted] = useState(false)
 	const [timer, setTimer] = useState(25 * 60)
+	const [open, setOpen] = useState(false)
 
 	useEffect(() => {
 		if (!isStarted) return
@@ -39,7 +41,10 @@ function App() {
 				{minutes} <br /> {seconds}
 			</h2>
 			<div className="flex items-center gap-x-4">
-				<Button variant="secondary">
+				<Button
+					onClick={() => setOpen(true)}
+					variant="secondary"
+				>
 					<svg
 						width="27"
 						height="7"
@@ -83,6 +88,17 @@ function App() {
 						<use href="/icons.svg#seek" />
 					</svg>
 				</Button>
+				<Modal
+					isOpen={open}
+					onClose={() => setOpen(false)}
+				>
+					<ul>
+						<li className="flex items-center justify-between">
+							<span>Dark mode</span>
+							<input type="checkbox" />
+						</li>
+					</ul>
+				</Modal>
 			</div>
 		</main>
 	)

@@ -11,3 +11,55 @@ body {
 button {
 	cursor: pointer;
 }
+
+.modal-overlay {
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.5);
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	z-index: 1000;
+
+	opacity: 0;
+	transition: opacity 0.2s ease;
+}
+
+.modal-overlay.open {
+	opacity: 1;
+}
+
+.modal-overlay.closing {
+	opacity: 0;
+}
+
+/* Контент */
+.modal-content {
+	background: #fff;
+	border-radius: 12px;
+	padding: 24px;
+
+	min-width: 450px;
+	max-width: 90%;
+	max-height: 90vh;
+	overflow-y: auto;
+
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+	transform: translateY(20px) scale(0.95);
+	opacity: 0;
+
+	transition: all 0.2s ease;
+}
+
+.modal-content.open {
+	transform: translateY(0) scale(1);
+	opacity: 1;
+}
+
+.modal-content.closing {
+	transform: translateY(20px) scale(0.95);
+	opacity: 0;
+}
